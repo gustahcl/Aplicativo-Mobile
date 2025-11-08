@@ -1,21 +1,13 @@
 import React from 'react';
 import { View, Text, Image, ScrollView, SafeAreaView, Linking, TouchableOpacity } from 'react-native';
-
-// --- Ícones SVG (react-native-svg) ---
-// Certifique-se de que está instalado: npx expo install react-native-svg
 import Svg, { Path, Rect, Circle } from 'react-native-svg';
-
-// ===================================================================
-// 1. DEFINIÇÃO DOS ÍCONES (COM PROP 'color' EM VEZ DE 'className')
-// ===================================================================
-
 const Mail = ({ size = 20, color = 'currentColor' }) => (
   <Svg
     width={size}
     height={size}
     viewBox="0 0 24 24"
     fill="none"
-    stroke={color} // Alterado de className para stroke={color}
+    stroke={color} 
     strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
@@ -61,19 +53,13 @@ const Wrench = ({ size = 24, color = 'currentColor' }) => (
   </Svg>
 );
 
-
-// ===================================================================
-// 2. DADOS DO CURRÍCULO
-// ===================================================================
 const profile = {
   name: "GUSTAVO HENRIQUE CUSTÓDIO DE LIMA",
   title: "Estagiário em Desenvolvimento de Sistemas e Análise de Dados",
-  // IMPORTANTE: Coloque a sua imagem na pasta 'assets' 
-  // e mude o nome do ficheiro abaixo!
   imageUrl: require('./assets/WhatsApp Image 2025-11-04 at 09.12.39.jpeg'),
   email: "guustavo.henrique.c.l12@gmail.com",
-  linkedin: "https://www.linkedin.com/in/gustavo-henrique-a8279a236/", // Link corrigido
-  github: "https://github.com/gustahcl", // Link corrigido
+  linkedin: "https://www.linkedin.com/in/gustavo-henrique-a8279a236/",
+  github: "https://github.com/gustahcl",
   summary: "Busco contribuir com soluções inovadoras e escaláveis, enquanto desenvolvo minhas habilidades técnicas em um ambiente colaborativo.",
   education: {
     course: "Tecnólogo em Análise e Desenvolvimento de Sistemas",
@@ -113,12 +99,6 @@ const profile = {
     },
   ],
 };
-
-// ===================================================================
-// 3. DEFINIÇÃO DOS COMPONENTES DA UI
-// ===================================================================
-
-// TypeScript: Definindo os tipos das 'props'
 type SectionCardProps = {
   title: string;
   icon: React.ReactNode;
@@ -164,7 +144,6 @@ const ProfileHeader = () => (
   </View>
 );
 
-// TypeScript: Definindo o tipo da 'prop' item
 type ExperienceItemProps = {
   item: {
     role: string;
@@ -189,10 +168,6 @@ const ExperienceItem = ({ item }: ExperienceItemProps) => (
   </View>
 );
 
-
-// ===================================================================
-// 4. FUNÇÃO PRINCIPAL (APP)
-// ===================================================================
 export default function App() {
   return (
     <SafeAreaView className="flex-1 bg-gray-100">
@@ -200,7 +175,6 @@ export default function App() {
         
         <ProfileHeader />
 
-        {/* Passei a cor #2563eb (blue-600) diretamente para os ícones */}
         <SectionCard title="Formação Acadêmica" icon={<GraduationCap color="#2563eb" />}>
           <Text className="font-semibold">{profile.education.course}</Text>
           <Text>{profile.education.institution}</Text>
